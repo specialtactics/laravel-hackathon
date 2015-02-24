@@ -10,6 +10,13 @@ use Illuminate\Http\Response;
 
 class FileController extends Controller {
 
+    /** @var FileSystem */
+    protected $fileSystemService;
+
+    public function __construct(FileSystem $filesystem)
+    {
+        $this->fileSystemService = $filesystem;
+    }
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -30,9 +37,19 @@ class FileController extends Controller {
 	{
         $jsonBody = $request->all();
 
-        $fileService = new FileSystem();
+        if($this->fileSystemService->validator($jsonBody)->fails()){
+            return [
+                'success' => 'error',
+                'message' => 'Not validated'
+            ];
+        } else {
+            return [
+                'success' => 'success',
+                'message' => 'validated'
+            ];
+        }
 
-        $fileService->validator($jsonBody);
+//        $fileService->validator($jsonBody);
 
         $created = Flysystem::put('hi.txt', 'Hello');
 
