@@ -145,6 +145,9 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+        //fly system
+        'GrahamCampbell\Flysystem\FlysystemServiceProvider',
+
 	],
 
 	/*
@@ -192,6 +195,9 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+
+        //flysystem
+        'Flysystem' => 'GrahamCampbell\Flysystem\Facades\Flysystem',
 
 	],
 
