@@ -34,8 +34,9 @@ class FileSystem implements RegistrarContract {
 	{
         if($data['fileType'] == self::TYPE_FILE) {
             return Flysystem::put($data['name'], $data['content']);
+        } else {
+            return Flysystem::createDir($data['name']);
         }
-        return false;
 	}
 
     public function get($filePath)
