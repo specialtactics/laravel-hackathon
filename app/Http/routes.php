@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'FileController@index');
+Route::post('/', 'FileController@store');
 
 
 

@@ -2,9 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Services\FileSystem;
 use GrahamCampbell\Flysystem\Facades\Flysystem;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class FileController extends Controller {
 
@@ -24,9 +26,18 @@ class FileController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-        return Flysystem::put('hi.txt', 'Hello');
+        $jsonBody = $request->all();
+
+        $fileService = new FileSystem();
+
+        $fileService->validator($jsonBody);
+
+        $created = Flysystem::put('hi.txt', 'Hello');
+
+        return (new Response("", 204));
+
 	}
 
 	/**
@@ -36,17 +47,6 @@ class FileController extends Controller {
 	 * @return Response
 	 */
 	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
 	{
 		//
 	}

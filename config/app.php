@@ -147,6 +147,7 @@ return [
 
         //fly system
         'GrahamCampbell\Flysystem\FlysystemServiceProvider',
+        'App\Providers\FileSystemServiceProvider',
 
 	],
 
@@ -198,6 +199,7 @@ return [
 
         //flysystem
         'Flysystem' => 'GrahamCampbell\Flysystem\Facades\Flysystem',
+        'FileSystem' => 'App\Providers\FileSystemServiceProvider',
 
 	],
 
