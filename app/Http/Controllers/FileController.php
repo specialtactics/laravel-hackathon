@@ -79,7 +79,7 @@ class FileController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+
 	}
 
 	/**
@@ -88,9 +88,13 @@ class FileController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($file)
 	{
-		//
+        if ($this->fileSystemService->exists($file)) {
+            return (new Response($this->fileSystemService->remove($file), 201));
+        } else {
+            return new Response('File not found', 404);
+        }
 	}
 
 }

@@ -48,6 +48,10 @@ class FileSystem implements RegistrarContract {
         return Flysystem::has($filePath);
     }
 
+    public function remove($filePath) {
+        return Flysystem::delete($filePath);
+    }
+
 }
 
 
