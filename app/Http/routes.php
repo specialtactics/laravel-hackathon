@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', 'FileController@index');
-Route::post('/', 'FileController@store');
+Route::get('/', ['middleware' => 'auth.basic', 'uses' => 'FileController@index']);
+Route::post('/', ['middleware' => 'auth.basic', 'uses' => 'FileController@store']);
 
 
 
+// Default stuff
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
