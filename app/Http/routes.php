@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'FileController@index');
 
-Route::get('file', 'FileController@index');
+
 
 Route::controllers([
     'auth' => 'Auth\AuthController',

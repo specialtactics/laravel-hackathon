@@ -32,7 +32,6 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-        return Flysystem::listContents('/');
 	}
 
 }

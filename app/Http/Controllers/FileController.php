@@ -15,18 +15,9 @@ class FileController extends Controller {
 	 */
 	public function index()
 	{
-
+        return Flysystem::listContents('/');
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
 
 	/**
 	 * Store a newly created resource in storage.
@@ -35,7 +26,7 @@ class FileController extends Controller {
 	 */
 	public function store()
 	{
-		//
+        return Flysystem::put('hi.txt', 'Hello');
 	}
 
 	/**
