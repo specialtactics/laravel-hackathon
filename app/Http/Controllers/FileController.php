@@ -28,11 +28,13 @@ class FileController extends Controller {
 	}
 
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @throws \Exception
+     * @return Response
+     */
 	public function store(Request $request)
 	{
         $jsonBody = $request->all();
@@ -48,8 +50,6 @@ class FileController extends Controller {
                 return (new Response("Entity not created", 409));
             }
         }
-
-        return (new Response("Entity not created", 409));
 	}
 
 	/**
