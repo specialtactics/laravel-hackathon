@@ -44,7 +44,7 @@ class FileController extends Controller {
             $created = $this->fileSystemService->create($jsonBody);
 
             if($created) {
-                return (new Response("", 204));
+                return (new Response($this->fileSystemService->get($jsonBody['name']), 201));
             } else {
                 return (new Response("Entity not created", 409));
             }

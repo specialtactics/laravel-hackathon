@@ -38,6 +38,13 @@ class FileSystem implements RegistrarContract {
         return false;
 	}
 
+    public function get($filePath)
+    {
+        $file = Flysystem::get('/'.$filePath);
+        dd($file);
+        return $file;
+    }
+
 }
 
 
