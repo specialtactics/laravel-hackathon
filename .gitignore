@@ -1,5 +1,5 @@
 /vendor
 /node_modules
+/www
 .env
 .idea
-storage/files/
