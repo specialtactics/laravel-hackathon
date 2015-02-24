@@ -3,6 +3,7 @@
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use App\Services\FileSystem;
 
 class ManageFilesCommand extends Command {
 
@@ -20,14 +21,17 @@ class ManageFilesCommand extends Command {
 	 */
 	protected $description = 'Command description.';
 
+	protected $fileSystemService;
+
 	/**
 	 * Create a new command instance.
 	 *
 	 * @return void
 	 */
-	public function __construct()
+	public function __construct(FileSystem $filesystem)
 	{
 		parent::__construct();
+		$this->fileSystemService = $filesystem;
 	}
 
 	/**
@@ -58,6 +62,15 @@ class ManageFilesCommand extends Command {
 			case 'upload':
 			{
 				$this->info('action: ' . $action . ' filename: ' . $filename);
+
+				$data = array(
+					'name' => $filename,
+					'fileType' => 'file',
+					'content' => 'stuff'
+				);
+
+				$created = $this->fileSystemService->create($data);
+
 				break;
 			}
 			default:
