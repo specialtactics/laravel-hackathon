@@ -38,15 +38,20 @@ class FileController extends Controller {
 	{
         $jsonBody = $request->all();
 
-        if($this->fileSystemService->validator($jsonBody)->fails()){
-            throw new \Exception('test');
+        $validator = $this->fileSystemService->validator($jsonBody);
+
+        if( $validator->fails()){
+            return [
+                'status' => 'false',
+                'messages' => $validator->messages(),
+            ];
         } else {
             $created = $this->fileSystemService->create($jsonBody);
 
             if($created) {
-                return (new Response($this->fileSystemService->get($jsonBody['name']), 201));
+               return (new Response($this->fileSystemService->get($jsonBody['name']), 201));
             } else {
-                return (new Response("Entity not created", 409));
+               return (new Response("Entity not created", 409));
             }
         }
 	}

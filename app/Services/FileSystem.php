@@ -40,8 +40,7 @@ class FileSystem implements RegistrarContract {
 
     public function get($filePath)
     {
-        $file = Flysystem::get('/'.$filePath);
-        dd($file);
+        $file = Flysystem::read($filePath);
         return $file;
     }
 
