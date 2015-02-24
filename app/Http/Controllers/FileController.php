@@ -27,7 +27,6 @@ class FileController extends Controller {
         return Flysystem::listContents('/');
 	}
 
-
     /**
      * Store a newly created resource in storage.
      *
