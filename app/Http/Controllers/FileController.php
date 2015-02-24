@@ -59,12 +59,12 @@ class FileController extends Controller {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  $file
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($file)
 	{
-		//
+        return (new Response($this->fileSystemService->get($file), 200));
 	}
 
 	/**

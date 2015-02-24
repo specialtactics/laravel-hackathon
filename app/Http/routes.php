@@ -13,6 +13,7 @@
 
 Route::get('/', ['middleware' => 'auth.basic', 'uses' => 'FileController@index']);
 Route::post('/', ['middleware' => 'auth.basic', 'uses' => 'FileController@store']);
+Route::get('/{file}', ['middleware' => 'auth.basic', 'uses' => 'FileController@show']);
 
 
 
