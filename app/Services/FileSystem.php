@@ -44,6 +44,10 @@ class FileSystem implements RegistrarContract {
         return $file;
     }
 
+    public function exists($filePath) {
+        return Flysystem::has($filePath);
+    }
+
 }
 
 

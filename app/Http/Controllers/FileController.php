@@ -64,7 +64,11 @@ class FileController extends Controller {
 	 */
 	public function show($file)
 	{
-        return (new Response($this->fileSystemService->get($file), 200));
+        if ($this->fileSystemService->exists($file)) {
+            return (new Response($this->fileSystemService->get($file), 200));
+        } else {
+            return new Response('File not found', 404);
+        }
 	}
 
 	/**
