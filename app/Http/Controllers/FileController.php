@@ -38,23 +38,18 @@ class FileController extends Controller {
         $jsonBody = $request->all();
 
         if($this->fileSystemService->validator($jsonBody)->fails()){
-            return [
-                'success' => 'error',
-                'message' => 'Not validated'
-            ];
+            throw new \Exception('test');
         } else {
-            return [
-                'success' => 'success',
-                'message' => 'validated'
-            ];
+            $created = $this->fileSystemService->create($jsonBody);
+
+            if($created) {
+                return (new Response("", 204));
+            } else {
+                return (new Response("Entity not created", 409));
+            }
         }
 
-//        $fileService->validator($jsonBody);
-
-        $created = Flysystem::put('hi.txt', 'Hello');
-
-        return (new Response("", 204));
-
+        return (new Response("Entity not created", 409));
 	}
 
 	/**
