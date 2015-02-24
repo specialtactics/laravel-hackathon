@@ -1,0 +1,52 @@
+{
+	"id": "1d84f981-591b-85cc-5f24-2df2a139f268",
+	"name": "FileSystem",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"id": "de5bc111-1c70-0c45-d113-809ec8295a65",
+			"name": "File",
+			"description": "",
+			"order": [
+				"f0944d5d-5e51-4943-71af-b0bc3aee8775"
+			],
+			"collection_name": "FileSystem",
+			"collection_id": "1d84f981-591b-85cc-5f24-2df2a139f268"
+		},
+		{
+			"id": "7b1447c8-cd19-b97c-e52b-f60204a758df",
+			"name": "Folder",
+			"description": "",
+			"order": [],
+			"collection_name": "FileSystem",
+			"collection_id": "1d84f981-591b-85cc-5f24-2df2a139f268"
+		}
+	],
+	"timestamp": 1424765290546,
+	"synced": false,
+	"remoteLink": "",
+	"requests": [
+		{
+			"id": "f0944d5d-5e51-4943-71af-b0bc3aee8775",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{url}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1424771975921,
+			"name": "file",
+			"description": "",
+			"collectionId": "1d84f981-591b-85cc-5f24-2df2a139f268",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n    \"fileType\": \"file\",\n    \"name\": \"hi.txt\",\n    \"content\": \"Hello I am conten\"\n}"
+		}
+	]
+}
